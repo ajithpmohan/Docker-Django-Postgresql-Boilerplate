@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
   db:
@@ -10,7 +10,9 @@ services:
       - POSTGRES_USER=app_user
       - POSTGRES_PASSWORD=app_pwd
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     image: docker.pkg.github.com/ajithpmohan/django-postgresql-boilerplate/backend-dev:1.0
     command: python manage.py runserver 0.0.0.0:7000
     volumes:
