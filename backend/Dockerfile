@@ -8,6 +8,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update \
+    && apt-get install postgresql-client -y \
+    && apt-get clean
+
 # Set the working directory
 ENV BASE_DIR=/usr/src/app
 ENV APP_DIR=$BASE_DIR/backend
